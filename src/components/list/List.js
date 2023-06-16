@@ -1,7 +1,11 @@
-export default function List() {
+export default function List({ activities }) {
   return (
     <ul>
-      <li>{[]}</li>
+      {activities.map((activity) => (
+        <li key={activity.id}>
+          <h3>{activity.name}</h3>
+        </li>
+      ))}
     </ul>
   );
 }
