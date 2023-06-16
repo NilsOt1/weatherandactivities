@@ -13,6 +13,15 @@ export default function App() {
   return (
     <div className="App">
       <Form onAddActivity={handleAddActivity} />
+      <List />
     </div>
   );
+
+  function List() {
+    return (
+      <ul>
+        <li>{[activities]}</li>
+      </ul>
+    );
+  }
 }
