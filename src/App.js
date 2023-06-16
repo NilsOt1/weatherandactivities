@@ -6,16 +6,19 @@ import { uid } from "uid";
 
 export default function App() {
   const [activities, setActivities] = useLocalStorageState("activities", {
-    defaultValue: "",
+    defaultValue: [],
   });
-
+  const isGoodWeather = true;
+  const filteredActitivies = activities.filter(
+    (activity) => activity.isForGoodWeather === isGoodWeather
+  );
   function handleAddActivity(newActivity) {
     setActivities([...activities, { id: uid(), ...newActivity }]);
   }
 
   return (
     <div className="App">
-      <List activities={activities} />
+      <List activities={filteredActitivies} isGoodWeather />
       <Form onAddActivity={handleAddActivity} />
     </div>
   );
